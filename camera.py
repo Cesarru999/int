@@ -31,7 +31,7 @@ while True:
 		0.55, (0, 255, 0), 2)
     
     # Display the resulting frame
-    cv2.putText(frame, f"Total faces: {n}", (1,25), cv2.FONT_HERSHEY_SIMPLEX,
+    cv2.putText(frame, f"Total people: {n}", (1,25), cv2.FONT_HERSHEY_SIMPLEX,
 		0.50, (255, 80, 0), 2)
     cv2.imshow('Video', frame)
 
