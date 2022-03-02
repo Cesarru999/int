@@ -1,0 +1,15 @@
+import cv2
+
+cap = cv2.VideoCapture(0)
+
+# Check if the webcam is opened correctly
+if not cap.isOpened():
+    raise IOError("Cannot open webcam")
+
+while True:
+    ret, frame = cap.read()
+    frame = cv2.resize(frame, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_AREA)
+    cv2.imshow('Input', frame)
+
+cap.release()
+cv2.destroyAllWindows()
