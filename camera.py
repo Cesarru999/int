@@ -1,15 +1,12 @@
-import cv2
-
-cap = cv2.VideoCapture(0)
-
-# Check if the webcam is opened correctly
-if not cap.isOpened():
-    raise IOError("Cannot open webcam")
-
-while True:
+#for this project, use a phone, conect pc and phne to the same network, install ip webcam android, start app and start server, copy the ip, and change the code.
+import cv2 
+import numpy as np
+url = 'http://192.168.0.101:8080/video'
+cap = cv2.VideoCapture(url)
+while(True):
     ret, frame = cap.read()
-    frame = cv2.resize(frame, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_AREA)
-    cv2.imshow('Input', frame)
-
-cap.release()
-cv2.destroyAllWindows()
+    if frame is not None:
+        cv2.imshow('frame',frame)
+    q = cv2.waitKey(1)
+    if cv2.waitKey(1) and 0xFF == ord('q'):
+        cv2.destroyAllWindows()
